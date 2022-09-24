@@ -1,0 +1,36 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add hardhat
+
+PATH: 
+  C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files\Oculus\Support\oculus-runtime;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\Darren\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Darren\AppData\Local\Microsoft\WindowsApps;C:\Users\Darren\AppData\Local\GitHubDesktop\bin;C:\Program Files\nodejs;C:\Users\Darren\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Darren\AppData\Local\Programs\Microsoft VS Code\bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.8.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@nomicfoundation/ethereumjs-rlp/-/ethereumjs-rlp-4.0.0.tgz: Request failed "503 Service Unavailable"
+      at ResponseError.ExtendableBuiltin (C:\Users\Darren\AppData\Roaming\nvm\v18.8.0\node_modules\yarn\lib\cli.js:696:66)
+      at new ResponseError (C:\Users\Darren\AppData\Roaming\nvm\v18.8.0\node_modules\yarn\lib\cli.js:802:124)
+      at Request.<anonymous> (C:\Users\Darren\AppData\Roaming\nvm\v18.8.0\node_modules\yarn\lib\cli.js:66215:16)
+      at Request.emit (node:events:513:28)
+      at module.exports.Request.onRequestResponse (C:\Users\Darren\AppData\Roaming\nvm\v18.8.0\node_modules\yarn\lib\cli.js:141767:10)
+      at ClientRequest.emit (node:events:513:28)
+      at HTTPParser.parserOnIncomingClient (node:_http_client:693:27)
+      at HTTPParser.parserOnHeadersComplete (node:_http_common:117:17)
+      at TLSSocket.socketOnData (node:_http_client:534:22)
+      at TLSSocket.emit (node:events:513:28)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
