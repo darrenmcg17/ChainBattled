@@ -90,10 +90,6 @@ function getTokenURI(uint256 tokenId) public view returns (string memory){
     );
 }
 
-function random() private view returns (uint256) {
-    return uint256(keccak256(abi.encodePacked(block.difficulty, block.timestamp)));
-}
-
 function mint() public {
     _tokenIds.increment();
     uint256 newItemId = _tokenIds.current();
@@ -104,6 +100,10 @@ function mint() public {
     tokenIdToLevels[newItemId].damage = 50 + (random() % 500);
     tokenIdToLevels[newItemId].critDmg = 50 + (random() % 1500);
     _setTokenURI(newItemId, getTokenURI(newItemId));
+}
+
+function random() private view returns (uint256) {
+    return uint256(keccak256(abi.encodePacked(block.difficulty, block.timestamp)));
 }
 
 function train(uint256 tokenId) public {
