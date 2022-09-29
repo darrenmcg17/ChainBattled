@@ -31,16 +31,14 @@ contract ChainBattles is ERC721URIStorage {
 
     bytes memory svg = abi.encodePacked(
         '<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 350 350">',
-        '<style>.base { fill: white; font-family: serif; font-size: 14px; }</style>',
-        '<rect width="100%" height="100%" fill="black" />',
+        '<style>.base { fill: cyan; font-family: serif; font-size: 14px; }</style>',
+        '<rect width="100%" height="100%" fill="goldenrod" />',
         '<text x="50%" y="40%" class="base" dominant-baseline="middle" text-anchor="middle">',"Warrior",'</text>',
-        '<text x="50%" y="50%" class="base" dominant-baseline="middle" text-anchor="middle">', 
-        "Experience: ",getExp(tokenId),
-        "\nHP: ", getHitPoints(tokenId),
-        "\nMP: ", getMana(tokenId),
-        "\nDMG: ", getDamage(tokenId),
-        "\nCRIT: ", getCritDmg(tokenId),
-        '</text>',
+        '<text x="50%" y="50%" class="base" dominant-baseline="middle" text-anchor="middle">',"Experience: ", getExp(tokenId),'</text>',
+        '<text x="50%" y="50%" class="base" dominant-baseline="middle" text-anchor="middle">',"HP: ", getHitPoints(tokenId),'</text>',
+        '<text x="50%" y="50%" class="base" dominant-baseline="middle" text-anchor="middle">',"Mana: ", getMana(tokenId),'</text>',
+        '<text x="50%" y="50%" class="base" dominant-baseline="middle" text-anchor="middle">',"Damage: ", getDamage(tokenId),'</text>',
+        '<text x="50%" y="50%" class="base" dominant-baseline="middle" text-anchor="middle">',"Crit DMG: ", getCritDmg(tokenId),'</text>',
         '</svg>'
     );
     return string(
@@ -76,7 +74,7 @@ function getCritDmg(uint256 tokenId) public view returns (string memory) {
     return crit.toString();
 }
 
-function getTokenURI(uint256 tokenId) public returns (string memory){
+function getTokenURI(uint256 tokenId) public view returns (string memory){
     bytes memory dataURI = abi.encodePacked(
         '{',
             '"name": "Chain Battles #', tokenId.toString(), '",',
@@ -92,20 +90,20 @@ function getTokenURI(uint256 tokenId) public returns (string memory){
     );
 }
 
+function random() private view returns (uint256) {
+    return uint256(keccak256(abi.encodePacked(block.difficulty, block.timestamp)));
+}
+
 function mint() public {
     _tokenIds.increment();
     uint256 newItemId = _tokenIds.current();
     _safeMint(msg.sender, newItemId);
     tokenIdToLevels[newItemId].expLevel = 1;
-    tokenIdToLevels[newItemId].hitPoints = 100 + (random() % 3);
-    tokenIdToLevels[newItemId].manaPoints = 75 + (random() % 4);
-    tokenIdToLevels[newItemId].damage = 110 + (random() % 5);
-    tokenIdToLevels[newItemId].critDmg = 222 + (random() % 3);
+    tokenIdToLevels[newItemId].hitPoints = 100 + (random() % 400);
+    tokenIdToLevels[newItemId].manaPoints = 75 + (random() % 300);
+    tokenIdToLevels[newItemId].damage = 50 + (random() % 500);
+    tokenIdToLevels[newItemId].critDmg = 50 + (random() % 1500);
     _setTokenURI(newItemId, getTokenURI(newItemId));
-}
-
-function random() private view returns (uint256) {
-    return uint256(keccak256(abi.encodePacked(block.difficulty, block.timestamp)));
 }
 
 function train(uint256 tokenId) public {
@@ -120,7 +118,7 @@ function train(uint256 tokenId) public {
     uint256 currentDmg = tokenIdToLevels[tokenId].damage;
     tokenIdToLevels[tokenId].damage = currentDmg += 30;
     uint256 currentCrit = tokenIdToLevels[tokenId].critDmg;
-    tokenIdToLevels[tokenId].critDmg = currentCrit += 5;
+    tokenIdToLevels[tokenId].critDmg = currentCrit += 50;
     _setTokenURI(tokenId, getTokenURI(tokenId));
 }
 
