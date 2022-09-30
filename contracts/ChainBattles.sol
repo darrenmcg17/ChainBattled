@@ -35,10 +35,10 @@ contract ChainBattles is ERC721URIStorage {
         '<rect width="100%" height="100%" fill="goldenrod" />',
         '<text x="50%" y="40%" class="base" dominant-baseline="middle" text-anchor="middle">',"Warrior",'</text>',
         '<text x="50%" y="50%" class="base" dominant-baseline="middle" text-anchor="middle">',"Experience: ", getExp(tokenId),'</text>',
-        '<text x="50%" y="50%" class="base" dominant-baseline="middle" text-anchor="middle">',"HP: ", getHitPoints(tokenId),'</text>',
-        '<text x="50%" y="50%" class="base" dominant-baseline="middle" text-anchor="middle">',"Mana: ", getMana(tokenId),'</text>',
-        '<text x="50%" y="50%" class="base" dominant-baseline="middle" text-anchor="middle">',"Damage: ", getDamage(tokenId),'</text>',
-        '<text x="50%" y="50%" class="base" dominant-baseline="middle" text-anchor="middle">',"Crit DMG: ", getCritDmg(tokenId),'</text>',
+        '<text x="50%" y="60%" class="base" dominant-baseline="middle" text-anchor="middle">',"HP: ", getHitPoints(tokenId),'</text>',
+        '<text x="50%" y="70%" class="base" dominant-baseline="middle" text-anchor="middle">',"Mana: ", getMana(tokenId),'</text>',
+        '<text x="50%" y="80%" class="base" dominant-baseline="middle" text-anchor="middle">',"Damage: ", getDamage(tokenId),'</text>',
+        '<text x="50%" y="90%" class="base" dominant-baseline="middle" text-anchor="middle">',"Crit DMG: ", getCritDmg(tokenId),'</text>',
         '</svg>'
     );
     return string(
